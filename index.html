@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Damien Lacroix - Portfolio BUT GEII</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    color:#333;
+}
+
+header{
+    background:#243447;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    margin-top:10px;
+    font-size:1.2rem;
+}
+
+nav{
+    background:#1d2935;
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:bold;
+}
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+h2{
+    color:#243447;
+    margin-bottom:20px;
+    border-left:5px solid #4c6ef5;
+    padding-left:10px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    margin-bottom:25px;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.skill{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+footer{
+    background:#243447;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Damien Lacroix</h1>
+    <p>Étudiant BUT Génie Électrique et Informatique Industrielle</p>
+    <p>Parcours Automatisme et Informatique Industrielle</p>
+</header>
+
+<nav>
+    <a href="#profil">Profil</a>
+    <a href="#formation">Formation</a>
+    <a href="#competences">Compétences</a>
+    <a href="#experiences">Expériences</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="profil">
+    <h2>À propos de moi</h2>
+
+    <div class="card">
+        <p>
+            Je suis actuellement en 3ème année de BUT Génie Électrique et Informatique
+            Industrielle à l'IUT Lyon 1.
+            Passionné par l'automatisme, l'électricité industrielle et la GTB,
+            je réalise actuellement une alternance chez CALASYS en tant que Technicien GTB.
+        </p>
+    </div>
+</section>
+
+<section id="formation">
+    <h2>Formation</h2>
+
+    <div class="card">
+        <h3>BUT Génie Électrique et Informatique Industrielle</h3>
+        <p>2023 - 2026</p>
+        <p>IUT Lyon 1 - Villeurbanne</p>
+        <p>Parcours Automatisme et Informatique Industrielle</p>
+    </div>
+
+    <div class="card">
+        <h3>Baccalauréat STI2D SIN</h3>
+        <p>Lycée Galilée - Vienne</p>
+    </div>
+</section>
+
+<section id="competences">
+    <h2>Compétences</h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            <h3>Concevoir</h3>
+            <p>Analyse fonctionnelle</p>
+            <p>Dimensionnement électrique</p>
+            <p>Conception de coffrets</p>
+        </div>
+
+        <div class="skill">
+            <h3>Vérifier</h3>
+            <p>Tests fonctionnels</p>
+            <p>Mesures électriques</p>
+            <p>Certification d'équipements</p>
+        </div>
+
+        <div class="skill">
+            <h3>Maintenir</h3>
+            <p>Diagnostic de pannes</p>
+            <p>Maintenance corrective</p>
+            <p>Dépannage industriel</p>
+        </div>
+
+        <div class="skill">
+            <h3>Intégrer</h3>
+            <p>Mise en service</p>
+            <p>GTB Schneider Electric</p>
+            <p>Automates AS-P / RP-C</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="experiences">
+    <h2>Expériences professionnelles</h2>
+
+    <div class="card">
+        <h3>Technicien GTB - CALASYS</h3>
+        <p>2025 - 2026</p>
+        <ul>
+            <li>Mise en service d'automates AS-P</li>
+            <li>Configuration d'équipements GTB</li>
+            <li>Supervision Schneider Electric</li>
+            <li>Projet 233 Lafayette</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Stage - Groupe SNEF</h3>
+        <p>2025</p>
+        <ul>
+            <li>Conception d'un coffret de test pompe</li>
+            <li>Dépannage électrique industriel</li>
+            <li>Mise en service contrôle d'accès</li>
+            <li>Diagnostic poste HT/TGBT</li>
+        </ul>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+
+    <div class="card">
+        <p>📧 damien.lacroix@etu.univ-lyon1.fr</p>
+        <p>📍 Villeurbanne</p>
+        <p>🚗 Permis B + Véhicule</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 - Damien Lacroix | Portfolio BUT GEII</p>
+</footer>
+
+</body>
+</html>
