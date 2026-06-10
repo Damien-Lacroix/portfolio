@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damien Lacroix - Portfolio AC BUT GEII</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth}
+        body{background:#f4f7fb;color:#1f2937}
+        nav{position:fixed;top:0;left:0;width:100%;padding:16px 7%;background:rgba(8,26,61,.96);display:flex;justify-content:space-between;align-items:center;z-index:1000;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+        .logo{color:white;font-size:25px;font-weight:800}
+        nav ul{display:flex;list-style:none;gap:22px}
+        nav a{color:white;text-decoration:none;font-weight:500;font-size:14px;transition:.3s}
+        nav a:hover{color:#7ab3ff}
+
+        .hero{min-height:100vh;background:radial-gradient(circle at top right,rgba(101,169,255,.35),transparent 30%),linear-gradient(135deg,#001d52,#0d47a1);color:white;padding:140px 8% 80px;display:flex;align-items:center}
+        .hero-content{width:100%;display:flex;align-items:center;justify-content:space-between;gap:70px}
+        .hero-image img{width:360px;height:360px;border-radius:50%;object-fit:cover;border:8px solid #7e8fff;box-shadow:0 20px 50px rgba(0,0,0,.35);background:white}
+        .hero-text h1{font-size:68px;line-height:1.1;margin-bottom:15px}
+        .hero-text span{color:#65a9ff}
+        .hero-text h2{font-size:26px;font-weight:500;margin-bottom:22px}
+        .hero-text p{max-width:800px;line-height:1.9;font-size:18px;opacity:.95}
+        .btns{margin-top:30px;display:flex;gap:15px;flex-wrap:wrap}
+        .btn{display:inline-block;padding:13px 24px;border-radius:50px;text-decoration:none;font-weight:700;transition:.3s}
+        .btn-primary{background:#65a9ff;color:white}
+        .btn-light{border:2px solid white;color:white}
+        .btn:hover{transform:translateY(-3px)}
+
+        section{padding:90px 8%}
+        .section-title{font-size:40px;color:#0d47a1;margin-bottom:25px}
+        .section-title::after{content:"";display:block;width:90px;height:5px;background:#65a9ff;border-radius:20px;margin-top:12px}
+        .intro{max-width:1050px;line-height:1.9;color:#475569;font-size:17px;margin-bottom:35px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+        .card{background:white;padding:32px;border-radius:24px;box-shadow:0 12px 30px rgba(0,0,0,.08)}
+        .card h3{color:#0d47a1;font-size:24px;margin-bottom:12px}
+        .card p,.card li{line-height:1.9}
+        .card ul{padding-left:20px;margin-top:10px}
+
+        .page{background:white;margin-bottom:70px;border-radius:30px;box-shadow:0 18px 45px rgba(0,0,0,.10);overflow:hidden;border:1px solid #e5e7eb}
+        .page-head{padding:42px 45px}
+        .page-head h2{font-size:34px;color:#111827;margin-bottom:10px}
+        .page-head h3{font-size:22px;color:#1e3a8a;margin-bottom:15px}
+        .page-head p{line-height:1.8;font-size:17px;max-width:1050px}
+        .concevoir .page-head{background:#f8c9a8}
+        .verifier .page-head{background:#c7e3b8}
+        .maintenir .page-head{background:#ffcf67}
+        .integrer .page-head{background:#d4d4d4}
+
+        .page-body{padding:45px}
+        .subsection{margin-bottom:36px}
+        .subsection h4{font-size:24px;color:#0d47a1;margin-bottom:14px;border-left:6px solid #65a9ff;padding-left:14px}
+        .subsection p{line-height:1.95;margin-bottom:14px;font-size:16.5px}
+        .subsection ul{padding-left:25px;line-height:2;margin-top:10px}
+        .two-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
+        .box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:24px}
+        .box h5{font-size:19px;color:#0d47a1;margin-bottom:10px}
+        .preuve{background:#ecfdf5;border-left:6px solid #16a34a;border-radius:18px;padding:22px;margin-top:20px}
+        .limite{background:#fff7ed;border-left:6px solid #f97316;border-radius:18px;padding:22px;margin-top:20px}
+        .bilan{background:#eff6ff;border-left:6px solid #2563eb;border-radius:18px;padding:22px;margin-top:20px}
+        .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+        .tag{background:#0d47a1;color:white;padding:8px 14px;border-radius:30px;font-size:14px;font-weight:600}
+        .quote{font-style:italic;color:#475569;background:#f1f5f9;border-radius:18px;padding:22px;margin:20px 0;line-height:1.8}
+        .anchor-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:30px}
+        .anchor-links a{background:white;color:#0d47a1;padding:18px;border-radius:18px;text-decoration:none;font-weight:700;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.08);transition:.3s}
+        .anchor-links a:hover{transform:translateY(-4px);background:#eff6ff}
+        footer{background:#081a3d;color:white;text-align:center;padding:35px 8%}
+
+        @media(max-width:950px){
+            nav ul{display:none}
+            .hero-content{flex-direction:column;text-align:center}
+            .hero-image img{width:260px;height:260px}
+            .hero-text h1{font-size:44px}
+            .hero-text h2{font-size:21px}
+            section{padding:65px 6%}
+            .page-head,.page-body{padding:28px 22px}
+            .page-head h2{font-size:27px}
+            .section-title{font-size:31px}
+        }
+
+        .page{
+            cursor:default;
+        }
+
+        .page-head{
+            cursor:pointer;
+            transition:.25s;
+            position:relative;
+        }
+
+        .page-head:hover{
+            filter:brightness(.97);
+        }
+
+        .open-hint{
+            display:inline-block;
+            margin-top:18px;
+            font-size:14px;
+            font-weight:700;
+            color:#0d47a1;
+            background:rgba(255,255,255,.65);
+            padding:8px 14px;
+            border-radius:30px;
+        }
+
+        .page-body{
+            display:none;
+            animation:fadeDown .35s ease;
+        }
+
+        .page.open .page-body{
+            display:block;
+        }
+
+        @keyframes fadeDown{
+            from{
+                opacity:0;
+                transform:translateY(-10px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        .ac-panel{
+            margin-top:0;
+        }
+
+
+        
+.trace-section{
+    margin-top:40px;
+    padding:30px;
+    background:#ffffff;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.trace-section h4{
+    color:#0d47a1;
+    font-size:26px;
+    margin-bottom:25px;
+}
+
+.trace-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(450px,1fr));
+    gap:30px;
+}
+
+.trace-gallery figure{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.trace-gallery figure:hover{
+    transform:translateY(-5px);
+}
+
+.trace-gallery img{
+    width:100%;
+    height:500px;
+    object-fit:contain;
+    background:#f8fafc;
+    padding:10px;
+    transition:0.3s;
+}
+
+.trace-gallery img:hover{
+    transform:scale(1.03);
+}
+
+.trace-gallery figcaption{
+    padding:20px;
+    font-size:16px;
+    line-height:1.7;
+}
+
+.trace-number{
+    display:inline-block;
+    background:#0d47a1;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.tag{
+
+            display:inline-flex;
+            align-items:center;
+            width:auto;
+            height:auto;
+            min-height:0;
+            background:#0d47a1;
+            color:white;
+            padding:8px 14px;
+            border-radius:30px;
+            font-size:14px;
+            font-weight:600;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Damien Lacroix - Portfolio</div>
+    <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#ac-concevoir">Concevoir</a></li>
+        <li><a href="#ac-verifier">Vérifier</a></li>
+        <li><a href="#ac-maintenir">Maintenir</a></li>
+        <li><a href="#ac-integrer">Intégrer</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<header class="hero" id="accueil">
+    <div class="hero-content">
+        <div class="hero-image">
+            <img src="photo.png" alt="Photo de Damien Lacroix">
+        </div>
+        <div class="hero-text">
+            <h1>Damien <span>LACROIX</span></h1>
+            <h2>Portfolio BUT GEII - Parcours AII</h2>
+            <p>
+                Ce portfolio présente mon bilan de compétences à travers quatre expériences fortes issues de mon stage
+                chez SNEF et de mon alternance chez CALASYS. Pour chaque compétence du parcours AII, j'ai choisi un
+                apprentissage critique précis et je le développe comme une vraie page de portfolio : contexte, mission,
+                méthode, preuves, difficultés, recul personnel et progression.
+            </p>
+            <div class="btns">
+                <a href="#competences" class="btn btn-primary">Voir les AC développés</a>
+                <a href="#contact" class="btn btn-light">Me contacter</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="profil">
+    <h2 class="section-title">Profil</h2>
+    <p class="intro">
+        Étudiant en troisième année de BUT Génie Électrique et Informatique Industrielle à l'IUT Lyon 1,
+        je suis spécialisé dans le parcours Automatisme et Informatique Industrielle. Mon parcours m'a permis
+        de travailler sur des situations techniques très différentes : conception d'un coffret électrique,
+        diagnostic d'un poste HT/TGBT, vérification d'équipements GTB et intégration d'un système de supervision
+        dans un bâtiment intelligent.
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Formation</h3>
+            <p>BUT GEII - IUT Lyon 1, parcours Automatisme et Informatique Industrielle.</p>
+            <p>Baccalauréat STI2D option SIN.</p>
+        </div>
+        <div class="card">
+            <h3>Stage SNEF</h3>
+            <p>Électricité industrielle en secteur chimie/pétrochimie, conception, câblage, diagnostic et mise en service.</p>
+        </div>
+        <div class="card">
+            <h3>Alternance CALASYS</h3>
+            <p>Technicien GTB, configuration et vérification d'équipements Schneider Electric sur des projets Smart Building.</p>
+        </div>
+    </div>
+</section>
+
+<section id="competences">
+    <h2 class="section-title">Compétences et AC développés</h2>
+    <p class="intro">
+        J'ai sélectionné un AC principal par compétence afin de le développer en profondeur. Les autres AC ne sont pas ignorés,
+        mais celui choisi est celui pour lequel mon expérience est la plus pertinente et la plus démonstrative.
+    </p>
+
+    <div class="anchor-links">
+        <a href="#ac-concevoir">Concevoir<br>Choix technologiques</a>
+        <a href="#ac-verifier">Vérifier<br>Procédure d'essais</a>
+        <a href="#ac-maintenir">Maintenir<br>Solution de maintenance</a>
+        <a href="#ac-integrer">Intégrer<br>Dossier de conformité</a>
+    </div>
+</section>
+
+<section id="ac-concevoir">
+    <article class="page concevoir">
+        <div class="page-head">
+            <h2>Concevoir la partie GEII d'un système</h2>
+            <h3>AC développé : Prouver la pertinence de ses choix technologiques</h3>
+            <p>
+                Expérience support : conception d'un coffret de test pompe lors de mon stage chez SNEF.
+                Cette mission est représentative de la compétence « Concevoir » car elle m'a demandé de partir
+                d'un besoin concret, de choisir des composants adaptés et de justifier techniquement mes décisions.
+            </p>
+            <span class="open-hint">Cliquer sur cette case pour ouvrir / fermer</span>
+        </div>
+
+        <div class="page-body">
+            <div class="subsection">
+                <h4>1. Contexte de l'expérience</h4>
+                <p>
+                    Lors de mon stage au sein du Groupe SNEF, j'ai participé à la réalisation d'un coffret électrique
+                    destiné à tester des pompes industrielles. Le besoin était de créer un banc de test portable capable
+                    d'alimenter un analyseur de pompes avec deux tensions différentes : 24V et 72V, à partir d'une arrivée
+                    classique en 230V. Cette demande pouvait sembler simple au départ, mais elle impliquait plusieurs choix
+                    techniques importants : choix des alimentations, protections électriques, organisation interne du coffret,
+                    section des conducteurs, code couleur, accessibilité et sécurité.
+                </p>
+                <p>
+                    L'enjeu n'était donc pas seulement de câbler des composants. Il fallait concevoir une solution cohérente,
+                    compacte, sûre et maintenable. Le coffret devait pouvoir être utilisé dans un contexte industriel,
+                    par des techniciens, sans créer de risque électrique ni de difficulté lors des futures interventions.
+                </p>
+            </div>
+
+            <div class="subsection">
+                <h4>2. Problématique technique</h4>
+                <p>
+                    La problématique principale était la suivante : comment transformer une alimentation 230V en deux sorties
+                    fiables de 24V et 72V, tout en assurant la protection des personnes, du matériel et la lisibilité du coffret ?
+                    Pour répondre à cette question, il fallait trouver un équilibre entre performance, sécurité, encombrement,
+                    facilité de câblage et maintenance.
+                </p>
+                <p>
+                    Un mauvais choix de transformateur aurait pu empêcher l'analyseur de fonctionner correctement. Un mauvais
+                    choix de protection aurait pu provoquer une absence de coupure en cas de surcharge. Une mauvaise organisation
+                    de la platine aurait rendu les interventions plus longues et plus risquées. C'est pour cela que chaque choix
+                    devait être justifié et non réalisé au hasard.
+                </p>
+            </div>
+
+            <div class="two-cols">
+                <div class="box">
+                    <h5>Contraintes principales</h5>
+                    <ul>
+                        <li>Obtenir deux tensions : 24V et 72V.</li>
+                        <li>Utiliser une alimentation d'entrée 230V.</li>
+                        <li>Respecter les règles de câblage industriel.</li>
+                        <li>Protéger les circuits contre les surcharges.</li>
+                        <li>Garder un coffret lisible et accessible.</li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <h5>Compétences mobilisées</h5>
+                    <ul>
+                        <li>Lecture d'un besoin technique.</li>
+                        <li>Dimensionnement électrique.</li>
+                        <li>Choix de composants.</li>
+                        <li>Implantation sur platine.</li>
+                        <li>Tests au multimètre.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h4>3. Démarche suivie</h4>
+                <p>
+                    La première étape a été de comprendre précisément le besoin de l'utilisateur final. Avec mon tuteur,
+                    nous avons analysé les tensions nécessaires, les contraintes du coffret et l'usage prévu. Ensuite,
+                    nous avons identifié les composants nécessaires : alimentation 24V, module 72V, disjoncteurs,
+                    borniers, rails DIN, goulottes et conducteurs.
+                </p>
+                <p>
+                    J'ai ensuite participé à l'implantation des éléments dans le coffret. Cette étape est importante car
+                    elle influence directement la qualité finale du système. Les composants doivent être placés de manière
+                    logique : les protections accessibles, les alimentations bien ventilées, les borniers bien repérés et
+                    les passages de câbles organisés. J'ai veillé à conserver du mou dans les fils afin de faciliter
+                    une future modification ou maintenance.
+                </p>
+                <p>
+                    Après le montage, j'ai réalisé les vérifications électriques. Les tests au multimètre ont permis de
+                    contrôler la continuité et de mesurer les tensions attendues. C'est lors de cette phase qu'un problème
+                    sur le module 72V a été identifié : il ne délivrait pas la tension attendue. Le composant a donc été
+                    remplacé, puis retesté.
+                </p>
+            </div>
+
+            <div class="subsection">
+                <h4>4. Justification des choix technologiques</h4>
+                <p>
+                    Le choix des alimentations était pertinent car elles répondaient directement au besoin fonctionnel :
+                    produire du 24V et du 72V de manière stable. Le choix de protections dédiées en amont de chaque
+                    alimentation permettait de sécuriser le système en cas de défaut sur une partie du circuit. Les sections
+                    de câbles ont été choisies en fonction du courant afin d'éviter les échauffements et les pertes.
+                </p>
+                <p>
+                    L'implantation sur rail DIN et l'utilisation de goulottes rendaient le coffret plus professionnel,
+                    plus propre et plus facile à maintenir. Le code couleur permettait également de mieux distinguer les
+                    circuits et de faciliter les futures interventions. Ces choix montrent que la conception ne se limite
+                    pas au fonctionnement immédiat : elle doit aussi intégrer la maintenance, la sécurité et la lisibilité.
+                </p>
+
+                <div class="preuve">
+                    <strong>Preuves concrètes :</strong> coffret monté et câblé, tensions 24V et 72V vérifiées,
+                    défaut du module 72V identifié lors des essais, remplacement du composant puis validation du fonctionnement.
+                </div>
+
+                <div class="limite">
+                    <strong>Limite et amélioration :</strong> si je devais refaire cette mission, je testerais chaque
+                    alimentation séparément avant de terminer tout le câblage. Cela permettrait de détecter plus tôt un
+                    composant défectueux et de gagner du temps.
+                </div>
+
+                <div class="bilan">
+                    <strong>Bilan personnel :</strong> cette expérience m'a fait comprendre que la pertinence d'un choix
+                    technologique se vérifie à la fois par le calcul, par la logique d'implantation et par les tests réels.
+                    J'ai progressé dans ma capacité à passer d'un besoin à une solution concrète et justifiée.
+                </div>
+
+
+                <div class="trace-section">
+                    <h4>Traces visuelles de l'activité</h4>
+                    <div class="trace-gallery">
+                        <figure>
+                            <img src="Coffret1.png" alt="Coffret en cours d'implantation">
+                            <figcaption>Coffret en cours d'implantation : choix de la disposition, rails DIN, goulottes et composants.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="Coffret_fini.png" alt="Coffret terminé">
+                            <figcaption>Coffret terminé : câblage réalisé, composants installés et essais de validation effectués.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="tags">
+                    <span class="tag">AC : Choix technologiques</span>
+                    <span class="tag">SNEF</span>
+                    <span class="tag">Coffret électrique</span>
+                    <span class="tag">24V / 72V</span>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<section id="ac-verifier">
+    <article class="page verifier">
+        <div class="page-head">
+            <h2>Vérifier la partie GEII d'un système</h2>
+            <h3>AC développé : Produire une procédure d'essais pour valider la conformité d'un système</h3>
+            <p>
+                Expérience support : vérification des automates AS-P et régulateurs RP-C sur le projet GTB 233 Lafayette
+                chez CALASYS. Cette situation est très adaptée à la compétence « Vérifier » car elle repose sur une démarche
+                de contrôle organisée avant validation de l'installation.
+            </p>
+            <span class="open-hint">Cliquer sur cette case pour ouvrir / fermer</span>
+        </div>
+
+        <div class="page-body">
+            <div class="subsection">
+                <h4>1. Contexte de l'expérience</h4>
+                <p>
+                    Chez CALASYS, j'interviens sur des systèmes de Gestion Technique du Bâtiment. Sur le projet 233 Lafayette,
+                    les équipements GTB permettent de superviser et piloter différentes fonctions techniques du bâtiment :
+                    chauffage, ventilation, climatisation, éclairage, stores, capteurs et équipements de zone. L'architecture
+                    repose notamment sur des automates Schneider Electric AS-P et des régulateurs RP-C associés à des modules
+                    terrain comme les CLU, CS4 et ISE.
+                </p>
+                <p>
+                    Avant qu'un système soit considéré comme opérationnel, il faut vérifier que chaque élément communique
+                    correctement, que les paramètres sont chargés, que les équipements remontent dans la supervision et que
+                    les défauts sont identifiés. Cette étape est essentielle car un défaut de communication ou une mauvaise
+                    configuration peut empêcher la supervision de fonctionner correctement.
+                </p>
+            </div>
+
+            <div class="subsection">
+                <h4>2. Problématique technique</h4>
+                <p>
+                    La problématique était la suivante : comment s'assurer qu'un lot GTB est réellement conforme avant sa
+                    mise en service ? Visuellement, les équipements peuvent être installés, raccordés et alimentés, mais cela
+                    ne garantit pas qu'ils fonctionnent correctement. Il faut donc appliquer une procédure d'essais précise.
+                </p>
+                <p>
+                    Cette procédure doit permettre de vérifier plusieurs points : l'adresse IP de l'automate, la restauration
+                    de la sauvegarde, la présence des régulateurs dans l'arborescence, la communication RoomBus, la version
+                    firmware et la bonne remontée des modules de terrain.
+                </p>
+            </div>
+
+            <div class="two-cols">
+                <div class="box">
+                    <h5>Équipements vérifiés</h5>
+                    <ul>
+                        <li>Automates Schneider Electric AS-P.</li>
+                        <li>Régulateurs RP-C.</li>
+                        <li>Modules CLU pour l'éclairage.</li>
+                        <li>Modules CS4 pour stores et ouvrants.</li>
+                        <li>Capteurs ISE.</li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <h5>Risques si la vérification est incomplète</h5>
+                    <ul>
+                        <li>Équipement non visible dans la supervision.</li>
+                        <li>Défaut de communication RoomBus.</li>
+                        <li>Mauvaise version firmware.</li>
+                        <li>Configuration non téléchargée.</li>
+                        <li>Erreur lors de la recette client.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h4>3. Procédure d'essais construite</h4>
+                <p>
+                    Pour vérifier correctement un équipement GTB, j'ai suivi une logique progressive. La première étape est
+                    de contrôler l'automate AS-P : son adresse IP, sa communication réseau et son accès via les outils
+                    Schneider. Ensuite, la sauvegarde du projet est restaurée ou vérifiée pour s'assurer que l'automate
+                    possède la bonne configuration.
+                </p>
+                <p>
+                    La deuxième étape consiste à vérifier les régulateurs RP-C. Dans la WorkStation, je contrôle que les
+                    régulateurs attendus apparaissent dans l'arborescence, qu'ils ne présentent pas de défaut de communication
+                    et qu'ils correspondent bien au lot étudié. Si nécessaire, le firmware est mis à jour afin d'assurer la
+                    compatibilité avec le reste de l'installation.
+                </p>
+                <p>
+                    La troisième étape concerne les modules de terrain. Les modules CLU, CS4 et ISE doivent être visibles
+                    et communiquer correctement. Par exemple, pour l'éclairage, il faut vérifier que le module CLU communique
+                    avec les luminaires raccordés. Cette logique permet de remonter progressivement de l'automate vers les
+                    équipements de terrain.
+                </p>
+            </div>
+
+            <div class="subsection">
+                <h4>4. Validation de la conformité</h4>
+                <p>
+                    Une fois les essais réalisés, l'équipement peut être considéré comme validé si plusieurs critères sont
+                    respectés : communication correcte, absence de défaut, configuration téléchargée, firmware à jour et
+                    équipement visible dans la supervision. Pour assurer la traçabilité, il est important de renseigner la
+                    date de validation et le nom de la personne ayant effectué le contrôle.
+                </p>
+                <p>
+                    Cette démarche montre que la vérification n'est pas une simple observation. C'est une méthode structurée
+                    qui permet d'identifier les défauts, de les corriger et de prouver que le système est prêt à fonctionner.
+                </p>
+
+                <div class="preuve">
+                    <strong>Preuves concrètes :</strong> équipements visibles dans la WorkStation, absence de défaut de
+                    communication, configurations téléchargées, firmware contrôlé, validation renseignée dans les remarques.
+                </div>
+
+                <div class="limite">
+                    <strong>Limite et amélioration :</strong> pour améliorer cette démarche, je pourrais formaliser une fiche
+                    d'essais standard avec des cases à cocher. Cela permettrait d'uniformiser les contrôles entre techniciens
+                    et d'éviter les oublis.
+                </div>
+
+                <div class="bilan">
+                    <strong>Bilan personnel :</strong> cette expérience m'a appris qu'une vérification fiable doit suivre une
+                    procédure. J'ai gagné en rigueur, en méthode et en autonomie dans l'analyse des défauts de communication GTB.
+                </div>
+
+
+                <div class="trace-section">
+                    <h4>Trace visuelle de vérification</h4>
+                    <div class="trace-gallery">
+                        <figure>
+                            <img src="RPC-OK.png" alt="Régulateur RP-C validé">
+                            <figcaption>Régulateur RP-C Schneider Electric vérifié : communication et état de fonctionnement validés.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="tags">
+                    <span class="tag">AC : Procédure d'essais</span>
+                    <span class="tag">CALASYS</span>
+                    <span class="tag">GTB</span>
+                    <span class="tag">AS-P / RP-C</span>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<section id="ac-maintenir">
+    <article class="page maintenir">
+        <div class="page-head">
+            <h2>Assurer le maintien en conditions opérationnelles d'un système</h2>
+            <h3>AC développé : Proposer une solution de maintenance</h3>
+            <p>
+                Expérience support : diagnostic d'un poste HT/TGBT après inondation lors de mon stage chez SNEF.
+                Cette mission illustre la compétence « Maintenir » car elle m'a confronté à un système défaillant,
+                à un risque électrique et à la nécessité de proposer une solution sûre.
+            </p>
+            <span class="open-hint">Cliquer sur cette case pour ouvrir / fermer</span>
+        </div>
+
+        <div class="page-body">
+            <div class="subsection">
+                <h4>1. Contexte de l'expérience</h4>
+                <p>
+                    Pendant mon stage chez SNEF, j'ai participé à une intervention sur un poste HT/TGBT ayant subi une
+                    inondation. Lors d'une tentative de remise sous tension, un flash électrique s'était produit. Cette
+                    situation était critique car elle concernait une installation de distribution électrique essentielle
+                    au fonctionnement du site.
+                </p>
+                <p>
+                    Le rôle de l'équipe était d'identifier l'origine du défaut et de déterminer si une remise en service
+                    partielle ou totale était possible. Dans ce type de situation, la priorité est la sécurité : il ne faut
+                    pas chercher à réalimenter rapidement si l'installation présente un danger.
+                </p>
+            </div>
+
+            <div class="subsection">
+                <h4>2. Problématique technique</h4>
+                <p>
+                    La problématique était de savoir quelle solution de maintenance proposer après un défaut grave sur un
+                    poste électrique inondé. Deux possibilités existaient : tenter une réparation partielle pour rétablir
+                    rapidement une partie de l'alimentation, ou recommander un remplacement complet si l'installation était
+                    trop dégradée.
+                </p>
+                <p>
+                    Le choix devait tenir compte de la sécurité, de la fiabilité, du risque de récidive et de l'impact sur
+                    l'exploitation du site. Une mauvaise décision aurait pu provoquer un nouvel incident électrique, mettre
+                    en danger les personnes ou entraîner une nouvelle interruption de service.
+                </p>
+            </div>
+
+            <div class="two-cols">
+                <div class="box">
+                    <h5>Points analysés</h5>
+                    <ul>
+                        <li>Présence d'eau dans l'installation.</li>
+                        <li>Dégradation visible du matériel.</li>
+                        <li>Flash électrique lors de la remise sous tension.</li>
+                        <li>Continuité électrique anormale.</li>
+                        <li>Risque pour les personnes et les équipements.</li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <h5>Objectifs de maintenance</h5>
+                    <ul>
+                        <li>Sécuriser l'installation.</li>
+                        <li>Identifier la cause du défaut.</li>
+                        <li>Éviter une remise sous tension dangereuse.</li>
+                        <li>Proposer une solution durable.</li>
+                        <li>Réduire les risques futurs.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h4>3. Démarche de diagnostic</h4>
+                <p>
+                    Après le flash électrique, l'alimentation a été coupée afin de sécuriser la zone. Ensuite, des mesures
+                    de continuité ont été réalisées à l'ohmmètre. Ces mesures ont permis de mettre en évidence un court-circuit
+                    au niveau du jeu de barres. Cette information était déterminante car elle montrait que le défaut ne
+                    concernait pas seulement un petit composant isolé, mais une partie importante du TGBT.
+                </p>
+                <p>
+                    L'état général du poste a ensuite été analysé. L'inondation avait pu fragiliser les appareils électriques,
+                    les isolants et les connexions. Dans ces conditions, une réparation partielle aurait été risquée : même
+                    si un élément était remplacé, d'autres défauts pouvaient apparaître plus tard.
+                </p>
+            </div>
+
+            <div class="subsection">
+                <h4>4. Solution de maintenance proposée</h4>
+                <p>
+                    La solution recommandée a été le remplacement complet du poste TGBT. Cette décision était plus lourde
+                    qu'une simple réparation, mais elle était la plus cohérente techniquement et la plus sûre. Elle permettait
+                    de repartir sur une installation fiable, conforme et moins exposée à de nouveaux défauts.
+                </p>
+                <p>
+                    Cette expérience m'a montré qu'une solution de maintenance ne doit pas uniquement viser à « refaire
+                    fonctionner » le système. Elle doit garantir la sécurité, limiter les risques de panne future et prendre
+                    en compte les conséquences d'une indisponibilité prolongée.
+                </p>
+
+                <div class="preuve">
+                    <strong>Preuves concrètes :</strong> court-circuit identifié sur le jeu de barres, TGBT jugé trop
+                    dégradé, remplacement complet recommandé pour sécuriser l'installation.
+                </div>
+
+                <div class="limite">
+                    <strong>Limite et amélioration :</strong> avant toute remise sous tension après inondation, il serait
+                    préférable de réaliser une procédure complète : inspection visuelle, contrôle de continuité, mesure
+                    d'isolement, vérification des protections et validation par une personne habilitée.
+                </div>
+
+                <div class="bilan">
+                    <strong>Bilan personnel :</strong> cette mission m'a appris à prendre du recul face à une panne.
+                    La solution la plus rapide n'est pas toujours la meilleure. En maintenance, il faut raisonner en sécurité,
+                    fiabilité et continuité d'exploitation.
+                </div>
+
+
+                <div class="trace-section">
+                    <h4>Trace visuelle du diagnostic</h4>
+                    <div class="trace-gallery">
+                        <figure>
+                            <img src="TGBT.png" alt="Poste TGBT après inondation">
+                            <figcaption>Poste TGBT analysé après inondation : diagnostic du défaut et préconisation de maintenance.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="tags">
+                    <span class="tag">AC : Solution de maintenance</span>
+                    <span class="tag">SNEF</span>
+                    <span class="tag">HT/TGBT</span>
+                    <span class="tag">Diagnostic</span>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<section id="ac-integrer">
+    <article class="page integrer">
+        <div class="page-head">
+            <h2>Intégrer un système de commande et de contrôle dans un procédé industriel</h2>
+            <h3>AC développé : Produire le dossier de conformité du système en gérant le versionnage</h3>
+            <p>
+                Expérience support : mise en service GTB du bâtiment 233 Lafayette chez CALASYS.
+                Cette expérience est pertinente pour la compétence « Intégrer » car elle associe configuration,
+                mise en service, essais et documentation technique.
+            </p>
+            <span class="open-hint">Cliquer sur cette case pour ouvrir / fermer</span>
+        </div>
+
+        <div class="page-body">
+            <div class="subsection">
+                <h4>1. Contexte de l'expérience</h4>
+                <p>
+                    Le projet 233 Lafayette concerne un bâtiment tertiaire équipé d'un système de Gestion Technique du
+                    Bâtiment. La GTB permet de centraliser la supervision des équipements techniques : CVC, éclairage,
+                    stores, capteurs, contacts d'ouverture et équipements de zone. Pour qu'un tel système fonctionne,
+                    il faut intégrer correctement les automates, les régulateurs, les modules et la documentation associée.
+                </p>
+                <p>
+                    Dans ce type de projet, la partie documentaire est aussi importante que la partie technique. Un système
+                    peut fonctionner correctement, mais si les plans, les adressages ou les documents de recette ne sont pas
+                    à jour, il devient difficile de maintenir l'installation et de prouver sa conformité.
+                </p>
+            </div>
+
+            <div class="subsection">
+                <h4>2. Problématique technique</h4>
+                <p>
+                    La problématique était la suivante : comment garantir que l'intégration du système GTB est conforme,
+                    traçable et exploitable dans le temps ? Le projet comporte de nombreux équipements répartis dans plusieurs
+                    zones du bâtiment. Sans suivi documentaire rigoureux, il devient facile de confondre les versions de plans,
+                    les zones, les adresses IP ou l'état de validation des équipements.
+                </p>
+                <p>
+                    Gérer le versionnage et le dossier de conformité permet donc d'éviter les erreurs lors des interventions,
+                    de faciliter la réception du système et de transmettre au client une installation compréhensible.
+                </p>
+            </div>
+
+            <div class="two-cols">
+                <div class="box">
+                    <h5>Documents concernés</h5>
+                    <ul>
+                        <li>Plans AutoCAD avec zoning.</li>
+                        <li>Plans d'adressage IP.</li>
+                        <li>Cahiers de recette.</li>
+                        <li>Suivi des équipements validés.</li>
+                        <li>Plans de comptage CVC.</li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <h5>Enjeux du versionnage</h5>
+                    <ul>
+                        <li>Identifier la dernière version valide.</li>
+                        <li>Éviter les erreurs de chantier.</li>
+                        <li>Assurer la traçabilité des modifications.</li>
+                        <li>Faciliter la maintenance future.</li>
+                        <li>Préparer la réception client.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h4>3. Démarche documentaire</h4>
+                <p>
+                    Dans le cadre de cette mission, j'ai participé à la mise à jour de documents techniques. Les plans avec
+                    zoning permettent d'associer les équipements aux bonnes zones du bâtiment. Les plans d'adressage IP
+                    permettent de savoir quel automate ou équipement correspond à quelle adresse réseau. Les cahiers de recette
+                    servent à suivre les validations et à prouver que les essais ont été réalisés.
+                </p>
+                <p>
+                    La gestion documentaire doit être rigoureuse. Lorsqu'un plan est modifié, il faut éviter de conserver
+                    plusieurs versions ambiguës. Il est important d'indiquer clairement les dates, les indices, les zones
+                    concernées et les modifications réalisées. Cette rigueur permet aux autres techniciens de comprendre
+                    rapidement l'état réel du projet.
+                </p>
+            </div>
+
+            <div class="subsection">
+                <h4>4. Apport pour l'intégration du système</h4>
+                <p>
+                    Le dossier de conformité sert de lien entre le terrain, le bureau d'études, les chefs de projet et le client.
+                    Il permet de prouver que le système installé correspond aux attentes et que les équipements sont correctement
+                    identifiés. Dans le cas de la GTB, cette traçabilité est essentielle car les équipements sont nombreux et
+                    interdépendants.
+                </p>
+                <p>
+                    Cette expérience m'a permis de comprendre que l'intégration d'un système ne se limite pas à configurer des
+                    automates. Il faut aussi produire une documentation fiable afin que le système puisse être exploité,
+                    maintenu et modifié plus tard.
+                </p>
+
+                <div class="preuve">
+                    <strong>Preuves concrètes :</strong> mise à jour de plans, zoning, adressage IP, documents de suivi,
+                    cahiers de recette et informations de validation.
+                </div>
+
+                <div class="limite">
+                    <strong>Limite et amélioration :</strong> améliorer encore le nommage des fichiers avec un format unique :
+                    date, indice, zone, type de document et auteur de la modification.
+                </div>
+
+                <div class="bilan">
+                    <strong>Bilan personnel :</strong> cette mission m'a montré que la documentation est une partie essentielle
+                    de l'intégration. Un système bien intégré est un système qui fonctionne, mais aussi un système compréhensible,
+                    traçable et maintenable.
+                </div>
+
+                <div class="tags">
+                    <span class="tag">AC : Dossier de conformité</span>
+                    <span class="tag">CALASYS</span>
+                    <span class="tag">GTB</span>
+                    <span class="tag">Versionnage</span>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="card contact-card">
+        <p><strong>Email :</strong> damien.lacroix@etu.univ-lyon1.fr</p>
+        <p><strong>Téléphone :</strong> 07 72 50 41 76</p>
+        <p><strong>Ville :</strong> Villeurbanne</p>
+        <p><strong>Permis :</strong> B + Véhicule</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Damien Lacroix - Portfolio BUT GEII Parcours AII</p>
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".page-head").forEach(function(header){
+        header.addEventListener("click", function(){
+            const page = header.closest(".page");
+            page.classList.toggle("open");
+        });
+    });
+});
+</script>
+
+</body>
+</html>
